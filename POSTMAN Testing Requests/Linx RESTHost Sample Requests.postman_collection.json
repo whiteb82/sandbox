@@ -1,0 +1,932 @@
+{
+	"info": {
+		"_postman_id": "1f3219e3-7208-4b0a-99f8-58d49b64880c",
+		"name": "Linx RESTHost Sample Requests",
+		"description": "The following requests are for use with the Linx Sample API - this is for debugging and testing purposes only.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GenerateUserToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f919ffdf-0675-41f1-8e1d-3b2038d025ed",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"token\", jsonData.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_uri}}/demo/users/token",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"demo",
+						"users",
+						"token"
+					]
+				},
+				"description": "Requests a JWT token from the Linx API, submitting basic auth credentials."
+			},
+			"response": [
+				{
+					"name": "GenerateUserToken_success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/demo/users/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"demo",
+								"users",
+								"token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-HTTPAPI/2.0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Sep 2020 11:48:02 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsaW54Iiwic3ViIjoiIiwiYXVkIjoiIiwiZXhwIjoiMTYwMDE4MTI4Mi45Mjk1NTkyIiwibmJmIjoiIiwiaWF0IjoiIiwianRpIjoiIiwidW5pcXVlX25hbWUiOiIxIn0.v8AXulhWR-8UNofc_PIrBoS-W8iJDFT5fwC2xN3UruY\",\n    \"expires_in\": 3600,\n    \"token_type\": \"Bearer\"\n}"
+				}
+			]
+		},
+		{
+			"name": "CreateUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "91f50bf0-bc7c-4031-94c1-ba92f8b74c98",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"test_user_id\", jsonData.user.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"user\":{\r\n      \"email\":\"test2@test.com\",\r\n      \"username\":\"Linx\",\r\n      \"firstname\":\"linx\",\r\n      \"lastname\":\"sotware\",\r\n      \"password\":\"p@ssw0rd\"\r\n   }\r\n}    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_uri}}/demo/users",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"demo",
+						"users"
+					]
+				},
+				"description": "Submits a 'user' object to the Linx API along with a Bearer token authentication header."
+			},
+			"response": [
+				{
+					"name": "CreateUser_error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"user\":{\r\n      \"email\":\"test@test.com\",\r\n      \"username\":\"Linx\",\r\n      \"firstname\":\"linx\",\r\n      \"lastname\":\"sotware\",\r\n      \"password\":\"p@ssw0rd\"\r\n   }\r\n}    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_uri}}/demo/users",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"demo",
+								"users"
+							]
+						}
+					},
+					"status": "{\"summary\":\"Invalid fields\",\"errors\":[\"Username: Already exists [Linx]\"]}",
+					"code": 400,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-HTTPAPI/2.0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Sep 2020 12:25:34 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						}
+					],
+					"cookie": [],
+					"body": "{\"summary\":\"Invalid fields\",\"errors\":[\"Username: Already exists [Linx]\"]}"
+				},
+				{
+					"name": "CreateUser_success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"user\":{\r\n      \"email\":\"test2@test.com\",\r\n      \"username\":\"Linx2\",\r\n      \"firstname\":\"linx\",\r\n      \"lastname\":\"sotware\",\r\n      \"password\":\"p@ssw0rd\"\r\n   }\r\n}    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_uri}}/demo/users",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"demo",
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-HTTPAPI/2.0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Sep 2020 12:26:02 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user\": {\n        \"email\": \"test2@test.com\",\n        \"username\": \"Linx2\",\n        \"id\": \"3\",\n        \"firstname\": \"linx\",\n        \"lastname\": \"sotware\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "UploadImage",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6d64d10c-ed3a-4c95-abb3-a3b53fff46e1",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/octet-stream",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Linx/API/Source Files/linx_logo_dark.png"
+					},
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_uri}}/demo/users/{{test_user_id}}/photo",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"demo",
+						"users",
+						"{{test_user_id}}",
+						"photo"
+					]
+				},
+				"description": "Submits a 'user' object to the Linx API along with a Bearer token authentication header."
+			},
+			"response": [
+				{
+					"name": "Upload_Success",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/octet-stream",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/C:/Linx/API/Source Files/linx_logo_dark.png"
+							},
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_uri}}/demo/users/{{test_user_id}}/photo",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"demo",
+								"users",
+								"{{test_user_id}}",
+								"photo"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-HTTPAPI/2.0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Sep 2020 13:29:36 GMT"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "UpdateUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fbb65f25-e46f-41d3-b97d-ed08094a205d",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"user\":{\r\n      \"email\":\"test2@test.com\",\r\n      \"firstname\":\"linx2\",\r\n      \"lastname\":\"sotware\"\r\n   }\r\n}    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_uri}}/demo/users/{{test_user_id}}",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"demo",
+						"users",
+						"{{test_user_id}}"
+					]
+				},
+				"description": "Submits a 'user' object to the Linx API along with a Bearer token authentication header."
+			},
+			"response": [
+				{
+					"name": "UpdateUser_Successful",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"user\":{\r\n      \"email\":\"test2@test.com\",\r\n      \"firstname\":\"linx2\",\r\n      \"lastname\":\"sotware\"\r\n   }\r\n}    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_uri}}/demo/users/{{test_user_id}}",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"demo",
+								"users",
+								"{{test_user_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Microsoft-HTTPAPI/2.0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Sep 2020 13:09:52 GMT"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "GetUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7f7b97ad-75f7-401e-b779-535ee362aeaf",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_uri}}/demo/users/{{test_user_id}}",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"demo",
+						"users",
+						"{{test_user_id}}"
+					]
+				},
+				"description": "Submits a 'user' object to the Linx API along with a Bearer token authentication header."
+			},
+			"response": [
+				{
+					"name": "GetUser_success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_uri}}/demo/users/{{test_user_id}}",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"demo",
+								"users",
+								"{{test_user_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-HTTPAPI/2.0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Sep 2020 12:44:35 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user\": {\n        \"email\": \"test2@test.com\",\n        \"username\": \"LINX\",\n        \"id\": \"2\",\n        \"firstname\": \"linx\",\n        \"lastname\": \"sotware\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "GetCurrentUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "261de600-202a-49cb-b4f9-dd9fdf2a8bbf",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_uri}}/demo/me",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"demo",
+						"me"
+					]
+				},
+				"description": "Submits a 'user' object to the Linx API along with a Bearer token authentication header."
+			},
+			"response": [
+				{
+					"name": "GetCurrentUser_success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_uri}}/demo/me",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"demo",
+								"me"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-HTTPAPI/2.0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Sep 2020 14:07:56 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user\": {\n        \"email\": \"\",\n        \"username\": \"ADMIN\",\n        \"id\": \"1\",\n        \"firstname\": \"admin\",\n        \"lastname\": \"admin\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "DownloadUserImage",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "99277ce0-cf3a-48cf-a819-021cb4b29d04",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_uri}}/demo/users/{{test_user_id}}/photo",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"demo",
+						"users",
+						"{{test_user_id}}",
+						"photo"
+					]
+				},
+				"description": "Submits a 'user' object to the Linx API along with a Bearer token authentication header."
+			},
+			"response": [
+				{
+					"name": "DownloadUserImage_success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_uri}}/demo/users/{{test_user_id}}/photo",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"demo",
+								"users",
+								"{{test_user_id}}",
+								"photo"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "raw",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/octet-stream"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-HTTPAPI/2.0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Sep 2020 13:31:37 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "6703"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "ListUsers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "14a1e6f2-2192-46ff-90a2-14086a3d54ed",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-api-key",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "{{api_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_uri}}/demo/users?name=admin",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"demo",
+						"users"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "admin"
+						}
+					]
+				},
+				"description": "Submits a 'user' object to the Linx API along with a Bearer token authentication header."
+			},
+			"response": [
+				{
+					"name": "ListUsers_search_for_admin",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_uri}}/demo/users?name=admin",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"demo",
+								"users"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "admin"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-HTTPAPI/2.0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Sep 2020 13:05:26 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"email\": \"\",\n        \"username\": \"ADMIN\",\n        \"id\": \"1\",\n        \"firstname\": \"admin\",\n        \"lastname\": \"admin\"\n    }\n]"
+				},
+				{
+					"name": "ListUsers_unauthorized",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_uri}}/demo/users",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"demo",
+								"users"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-HTTPAPI/2.0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Sep 2020 12:54:49 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Error\": \"Unauthorized\"\n}"
+				}
+			]
+		},
+		{
+			"name": "DeleteUser",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_uri}}/demo/users/{{test_user_id}}",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"demo",
+						"users",
+						"{{test_user_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

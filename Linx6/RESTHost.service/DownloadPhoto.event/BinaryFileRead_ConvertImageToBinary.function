@@ -1,0 +1,16 @@
+{
+  "Properties": [
+    {
+      "Id": "File path",
+      "Type": "Compiled:String",
+      "ValueUsage": "RuntimeRead",
+      "Value": {
+        "Expression": "FileList_GetProfilePicForUserID.Files[0].FileName",
+        "CompiledExpression": "={0}[0].FileName",
+        "Type": "Compiled:String"
+      },
+      "ValueType": "Linx.CSharpExpression"
+    }
+  ],
+  "Result": "List:Compiled:Byte"
+}

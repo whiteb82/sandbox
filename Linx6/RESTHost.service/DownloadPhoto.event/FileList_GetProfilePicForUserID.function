@@ -1,0 +1,40 @@
+{
+  "Properties": [
+    {
+      "Id": "Folder path",
+      "Type": "Compiled:String",
+      "ValueUsage": "RuntimeRead",
+      "Value": {
+        "Expression": "$.Settings.baseFilePath",
+        "CompiledExpression": "={0}",
+        "Type": "Compiled:String"
+      },
+      "ValueType": "Linx.CSharpExpression"
+    },
+    {
+      "Id": "Include subfolders",
+      "Type": "Compiled:Boolean",
+      "ValueUsage": "DesignTime",
+      "Value": false
+    },
+    {
+      "Id": "Loop results",
+      "Type": "Compiled:Boolean",
+      "ValueUsage": "DesignTime",
+      "Value": false
+    },
+    {
+      "Id": "Return full path",
+      "Type": "Compiled:Boolean",
+      "ValueUsage": "DesignTime",
+      "Value": true
+    },
+    {
+      "Id": "Search pattern",
+      "Type": "Compiled:String",
+      "ValueUsage": "RuntimeRead",
+      "Value": null
+    }
+  ],
+  "Result": "Generated:0mTJ"
+}
