@@ -1,0 +1,15 @@
+{
+  "Properties": [
+    {
+      "Id": "Value",
+      "Type": "Generated:GHsw",
+      "ValueUsage": "RuntimeRead",
+      "Value": "{\"HttpContext\":{\"StatusCode\":404}, \"Response401\":{}, \"Response404\":{\"summary\":\"Not Found\"}}",
+      "ValueType": "String"
+    }
+  ],
+  "RuntimeCharacteristics": {
+    "IsTerminating": true,
+    "ExecutionPathExecution": "ZeroOrMore"
+  }
+}

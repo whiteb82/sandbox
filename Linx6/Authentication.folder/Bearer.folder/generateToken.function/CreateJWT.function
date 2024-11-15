@@ -2,7 +2,7 @@
   "Properties": [
     {
       "Id": "Algorithm",
-      "Type": "Compiled:Twenty57.Linx.Plugins.Cryptography.Jwt.Common.JwtAlgorithm, Twenty57.Linx.Plugins.Cryptography, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "Type": "Compiled:Twenty57.Linx.Plugins.Cryptography.Shared.Jwt.Common.JwtAlgorithm, Twenty57.Linx.Plugins.Cryptography.Shared, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null",
       "ValueUsage": "DesignTime",
       "Value": "HS256"
     },
@@ -19,7 +19,7 @@
     },
     {
       "Id": "Secret key",
-      "Type": "Compiled:Twenty57.Linx.Plugins.Cryptography.Common.Binary, Twenty57.Linx.Plugins.Cryptography, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "Type": "Compiled:Twenty57.Linx.Plugins.Cryptography.Shared.Common.Binary, Twenty57.Linx.Plugins.Cryptography.Shared, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null",
       "ValueUsage": "RuntimeRead",
       "Value": {
         "Expression": "$.Settings.JWTTokenSecretSigningKey.ToBytes().ToBase64()",
@@ -29,5 +29,6 @@
       "ValueType": "Linx.CSharpExpression"
     }
   ],
-  "Result": "Compiled:String"
+  "Result": "Compiled:String",
+  "Version": "1"
 }

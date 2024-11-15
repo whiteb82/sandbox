@@ -1,0 +1,19 @@
+{
+  "Properties": [
+    {
+      "Id": "Type",
+      "Type": "Compiled:Linx.ITypeReference",
+      "ValueUsage": "DesignTime",
+      "Value": "Custom:ujDO",
+      "ValueType": "Linx.ValidCustomTypeReference"
+    },
+    {
+      "Id": "Value",
+      "Type": "Custom:ujDO",
+      "ValueUsage": "RuntimeRead",
+      "Value": "{}",
+      "ValueType": "String"
+    }
+  ],
+  "Result": "Custom:ujDO"
+}

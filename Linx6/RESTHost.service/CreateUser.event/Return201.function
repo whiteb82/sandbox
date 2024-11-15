@@ -1,68 +1,68 @@
 {
   "Properties": [
     {
-      "Id": "Source",
-      "Type": "Generated:5iqY",
+      "Id": "Value",
+      "Type": "Generated:pNoA",
       "ValueUsage": "RuntimeRead",
       "Value": {
-        "ParsedExpression": "{\"HttpContext\":{\"StatusCode\":200}, \"Response200\":{\"user\":{\"email\":{\"LinxExpression\":\"[PARSED]\"}, \"username\":{\"LinxExpression\":\"[PARSED]\"}, \"id\":{\"LinxExpression\":\"[PARSED]\"}, \"firstname\":{\"LinxExpression\":\"[PARSED]\"}, \"lastname\":{\"LinxExpression\":\"[PARSED]\"}}}}",
+        "ParsedExpression": "{\"HttpContext\":{\"StatusCode\":201}, \"Response201\":{\"user\":{\"email\":{\"LinxExpression\":\"[PARSED]\"},\"username\":{\"LinxExpression\":\"[PARSED]\"},\"id\":{\"LinxExpression\":\"[PARSED]\"},\"firstname\":{\"LinxExpression\":\"[PARSED]\"},\"lastname\":{\"LinxExpression\":\"[PARSED]\"}}}}",
         "ExpressionPlaceholders": [
           {
             "typePath": [
-              "Response200",
+              "Response201",
               "user",
               "email"
             ],
             "expression": {
-              "Expression": "GetUser.email",
+              "Expression": "$.Parameters.body.user.email",
               "CompiledExpression": "={0}",
               "Type": "Compiled:String"
             }
           },
           {
             "typePath": [
-              "Response200",
+              "Response201",
               "user",
               "username"
             ],
             "expression": {
-              "Expression": "GetUser.username",
+              "Expression": "$.Parameters.body.user.username",
               "CompiledExpression": "={0}",
               "Type": "Compiled:String"
             }
           },
           {
             "typePath": [
-              "Response200",
+              "Response201",
               "user",
               "id"
             ],
             "expression": {
-              "Expression": "GetUser.id",
+              "Expression": "AddUserToDatabase.ID",
               "CompiledExpression": "={0}",
-              "Type": "Compiled:Int64"
+              "Type": "Compiled:Decimal"
             }
           },
           {
             "typePath": [
-              "Response200",
+              "Response201",
               "user",
               "firstname"
             ],
             "expression": {
-              "Expression": "GetUser.first_name",
+              "Expression": "$.Parameters.body.user.firstname",
               "CompiledExpression": "={0}",
               "Type": "Compiled:String"
             }
           },
           {
             "typePath": [
-              "Response200",
+              "Response201",
               "user",
               "lastname"
             ],
             "expression": {
-              "Expression": "GetUser.last_name",
+              "Expression": "$.Parameters.body.user.lastname",
               "CompiledExpression": "={0}",
               "Type": "Compiled:String"
             }
@@ -70,17 +70,10 @@
         ]
       },
       "ValueType": "Linx.JsonExpression"
-    },
-    {
-      "Id": "Target",
-      "Type": "Generated:5iqY",
-      "ValueUsage": "RuntimeWrite",
-      "Value": {
-        "Expression": "$.Result",
-        "CompiledExpression": "={0}",
-        "Type": "Generated:5iqY"
-      },
-      "ValueType": "Linx.CSharpExpression"
     }
-  ]
+  ],
+  "RuntimeCharacteristics": {
+    "IsTerminating": true,
+    "ExecutionPathExecution": "ZeroOrMore"
+  }
 }

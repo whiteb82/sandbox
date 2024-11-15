@@ -1,0 +1,15 @@
+{
+  "Properties": [
+    {
+      "Id": "Value",
+      "Type": "Generated:Ly7R",
+      "ValueUsage": "RuntimeRead",
+      "Value": "{\"HttpContext\":{\"StatusCode\":204}}",
+      "ValueType": "String"
+    }
+  ],
+  "RuntimeCharacteristics": {
+    "IsTerminating": true,
+    "ExecutionPathExecution": "ZeroOrMore"
+  }
+}

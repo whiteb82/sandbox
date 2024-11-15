@@ -2,7 +2,7 @@
   "Properties": [
     {
       "Id": "Action",
-      "Type": "Compiled:Twenty57.Linx.Plugins.Text.RegularExpression.RegexAction, Twenty57.Linx.Plugins.Text, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null",
+      "Type": "Compiled:Twenty57.Linx.Plugins.Text.Shared.RegularExpression.RegexAction, Twenty57.Linx.Plugins.Text.Shared, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null",
       "ValueUsage": "DesignTime",
       "Value": "FirstMatch"
     },
@@ -25,7 +25,7 @@
     },
     {
       "Id": "Options",
-      "Type": "Compiled:System.Text.RegularExpressions.RegexOptions, System.Text.RegularExpressions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+      "Type": "Compiled:System.Text.RegularExpressions.RegexOptions, System.Text.RegularExpressions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
       "ValueUsage": "DesignTime",
       "Value": "None"
     }

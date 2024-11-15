@@ -1,0 +1,15 @@
+{
+  "Properties": [
+    {
+      "Id": "Value",
+      "Type": "Generated:V2M9",
+      "ValueUsage": "RuntimeRead",
+      "Value": "{\"HttpContext\":{\"StatusCode\":204}}",
+      "ValueType": "String"
+    }
+  ],
+  "RuntimeCharacteristics": {
+    "IsTerminating": true,
+    "ExecutionPathExecution": "ZeroOrMore"
+  }
+}

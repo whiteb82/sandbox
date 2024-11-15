@@ -21,7 +21,7 @@
     "Id": "nu6a",
     "Name": "db_conn",
     "Type": "Compiled:String",
-    "Value": "Data Source=DESKTOP-PG5O5UL\\SQLEXPRESS;Initial Catalog=AdventureWorksLT2017;Integrated Security=True;"
+    "Value": "Data Source=localhost;Initial Catalog=API_Test;User ID=StadiumAppUser;Password=Pa$$worD123!@#;TrustServerCertificate=True;"
   },
   {
     "Id": "SHoR",

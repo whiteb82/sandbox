@@ -1,0 +1,15 @@
+{
+  "Properties": [
+    {
+      "Id": "Value",
+      "Type": "Generated:9UsM",
+      "ValueUsage": "RuntimeRead",
+      "Value": "{\"HttpContext\":{\"StatusCode\":422}, \"Response200\":[]}",
+      "ValueType": "String"
+    }
+  ],
+  "RuntimeCharacteristics": {
+    "IsTerminating": true,
+    "ExecutionPathExecution": "ZeroOrMore"
+  }
+}

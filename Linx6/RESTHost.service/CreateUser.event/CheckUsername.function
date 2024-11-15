@@ -13,7 +13,7 @@
     },
     {
       "Id": "Connection type",
-      "Type": "Compiled:Twenty57.Linx.Plugins.Database.Common.Sql.ConnectionTypeSelection, Twenty57.Linx.Plugins.Database, Version=1.0.6.0, Culture=neutral, PublicKeyToken=null",
+      "Type": "Compiled:Twenty57.Linx.Plugins.Database.Shared.Common.Sql.DesignerConnectionType, Twenty57.Linx.Plugins.Database.Shared, Version=3.0.5.0, Culture=neutral, PublicKeyToken=null",
       "ValueUsage": "DesignTime",
       "Value": "SqlServer"
     },
@@ -30,7 +30,7 @@
     },
     {
       "Id": "Result type",
-      "Type": "Compiled:Twenty57.Linx.Plugins.Database.ExecuteSQL.ResultType, Twenty57.Linx.Plugins.Database, Version=1.0.6.0, Culture=neutral, PublicKeyToken=null",
+      "Type": "Compiled:Twenty57.Linx.Plugins.Database.Shared.ExecuteSQL.ResultType, Twenty57.Linx.Plugins.Database.Shared, Version=3.0.5.0, Culture=neutral, PublicKeyToken=null",
       "ValueUsage": "DesignTime",
       "Value": {
         "CustomType": null,
@@ -51,7 +51,7 @@
     },
     {
       "Id": "Return options",
-      "Type": "Compiled:Twenty57.Linx.Plugins.Database.ExecuteSQL.ReturnModeType, Twenty57.Linx.Plugins.Database, Version=1.0.6.0, Culture=neutral, PublicKeyToken=null",
+      "Type": "Compiled:Twenty57.Linx.Plugins.Database.Shared.ExecuteSQL.ReturnModeType, Twenty57.Linx.Plugins.Database.Shared, Version=3.0.5.0, Culture=neutral, PublicKeyToken=null",
       "ValueUsage": "DesignTime",
       "Value": "FirstRowElseNull"
     },
@@ -59,7 +59,7 @@
       "Id": "SQL",
       "Type": "Compiled:String",
       "ValueUsage": "RuntimeRead",
-      "Value": "IF EXISTS (SELECT 1 FROM [api_user] WHERE [username] = @{$.Parameters.body.user.username})\r\nBEGIN\r\n\tSELECT 0 [Valid], 'Username: already exists.' [Message]\r\n\r\nEND\r\nELSE\r\nBEGIN\r\n\tSELECT 1 [Valid], 'Username valid.' [Message]\r\nEND"
+      "Value": "IF EXISTS (SELECT 1 FROM [api_user] WHERE [username] = @{$.Parameters.body.user.username})\r\nBEGIN\r\n SELECT 0 [Valid], 'Username: already exists.' [Message]\r\n\r\nEND\r\nELSE\r\nBEGIN\r\n SELECT 1 [Valid], 'Username valid.' [Message]\r\nEND"
     },
     {
       "Id": "Timeout",
@@ -68,6 +68,6 @@
       "Value": 60
     }
   ],
-  "Result": "Generated:9SnK",
-  "Version": "2"
+  "Result": "Generated:j2GI",
+  "Version": "3"
 }

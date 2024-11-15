@@ -1,7 +1,7 @@
 {
   "Properties": [
     {
-      "Id": "Source",
+      "Id": "Value",
       "Type": "Generated:pgda",
       "ValueUsage": "RuntimeRead",
       "Value": {
@@ -20,17 +20,10 @@
         ]
       },
       "ValueType": "Linx.JsonExpression"
-    },
-    {
-      "Id": "Target",
-      "Type": "Generated:pgda",
-      "ValueUsage": "RuntimeWrite",
-      "Value": {
-        "Expression": "$.Result",
-        "CompiledExpression": "={0}",
-        "Type": "Generated:pgda"
-      },
-      "ValueType": "Linx.CSharpExpression"
     }
-  ]
+  ],
+  "RuntimeCharacteristics": {
+    "IsTerminating": true,
+    "ExecutionPathExecution": "ZeroOrMore"
+  }
 }

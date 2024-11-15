@@ -1,7 +1,7 @@
 {
   "Properties": [
     {
-      "Id": "Source",
+      "Id": "Value",
       "Type": "Generated:JWv5",
       "ValueUsage": "RuntimeRead",
       "Value": {
@@ -43,17 +43,10 @@
         ]
       },
       "ValueType": "Linx.JsonExpression"
-    },
-    {
-      "Id": "Target",
-      "Type": "Generated:JWv5",
-      "ValueUsage": "RuntimeWrite",
-      "Value": {
-        "Expression": "$.Result",
-        "CompiledExpression": "={0}",
-        "Type": "Generated:JWv5"
-      },
-      "ValueType": "Linx.CSharpExpression"
     }
-  ]
+  ],
+  "RuntimeCharacteristics": {
+    "IsTerminating": true,
+    "ExecutionPathExecution": "ZeroOrMore"
+  }
 }

@@ -1,0 +1,19 @@
+{
+  "Properties": [
+    {
+      "Id": "Value",
+      "Type": "Custom:ujDO",
+      "ValueUsage": "RuntimeRead",
+      "Value": {
+        "Expression": "_Result",
+        "CompiledExpression": "={0}",
+        "Type": "Custom:ujDO"
+      },
+      "ValueType": "Linx.CSharpExpression"
+    }
+  ],
+  "RuntimeCharacteristics": {
+    "IsTerminating": true,
+    "ExecutionPathExecution": "ZeroOrMore"
+  }
+}

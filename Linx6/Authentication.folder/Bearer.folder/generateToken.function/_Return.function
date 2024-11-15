@@ -1,7 +1,7 @@
 {
   "Properties": [
     {
-      "Id": "Source",
+      "Id": "Value",
       "Type": "Custom:UGme",
       "ValueUsage": "RuntimeRead",
       "Value": {
@@ -30,17 +30,10 @@
         ]
       },
       "ValueType": "Linx.JsonExpression"
-    },
-    {
-      "Id": "Target",
-      "Type": "Custom:UGme",
-      "ValueUsage": "RuntimeWrite",
-      "Value": {
-        "Expression": "$.Result",
-        "CompiledExpression": "={0}",
-        "Type": "Custom:UGme"
-      },
-      "ValueType": "Linx.CSharpExpression"
     }
-  ]
+  ],
+  "RuntimeCharacteristics": {
+    "IsTerminating": true,
+    "ExecutionPathExecution": "ZeroOrMore"
+  }
 }

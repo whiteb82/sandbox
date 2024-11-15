@@ -1,8 +1,8 @@
 {
   "Properties": [
     {
-      "Id": "Source",
-      "Type": "Generated:GHsw",
+      "Id": "Value",
+      "Type": "Generated:9UsM",
       "ValueUsage": "RuntimeRead",
       "Value": {
         "ParsedExpression": "{\"HttpContext\":{\"StatusCode\":200}, \"Response200\":{\"LinxExpression\":\"[PARSED]\"}}",
@@ -12,25 +12,18 @@
               "Response200"
             ],
             "expression": {
-              "Expression": "BinaryFileRead_ConvertImageToBinary",
+              "Expression": "GetAllUsers",
               "CompiledExpression": "={0}",
-              "Type": "List:Compiled:Byte"
+              "Type": "List:Generated:myS8"
             }
           }
         ]
       },
       "ValueType": "Linx.JsonExpression"
-    },
-    {
-      "Id": "Target",
-      "Type": "Generated:GHsw",
-      "ValueUsage": "RuntimeWrite",
-      "Value": {
-        "Expression": "$.Result",
-        "CompiledExpression": "={0}",
-        "Type": "Generated:GHsw"
-      },
-      "ValueType": "Linx.CSharpExpression"
     }
-  ]
+  ],
+  "RuntimeCharacteristics": {
+    "IsTerminating": true,
+    "ExecutionPathExecution": "ZeroOrMore"
+  }
 }

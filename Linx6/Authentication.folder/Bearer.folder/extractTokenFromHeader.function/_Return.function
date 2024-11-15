@@ -1,7 +1,7 @@
 {
   "Properties": [
     {
-      "Id": "Source",
+      "Id": "Value",
       "Type": "Custom:GSa4",
       "ValueUsage": "RuntimeRead",
       "Value": {
@@ -10,17 +10,10 @@
         "Type": "Compiled:String"
       },
       "ValueType": "Linx.CSharpExpression"
-    },
-    {
-      "Id": "Target",
-      "Type": "Custom:GSa4",
-      "ValueUsage": "RuntimeWrite",
-      "Value": {
-        "Expression": "$.Result",
-        "CompiledExpression": "={0}",
-        "Type": "Custom:GSa4"
-      },
-      "ValueType": "Linx.CSharpExpression"
     }
-  ]
+  ],
+  "RuntimeCharacteristics": {
+    "IsTerminating": true,
+    "ExecutionPathExecution": "ZeroOrMore"
+  }
 }

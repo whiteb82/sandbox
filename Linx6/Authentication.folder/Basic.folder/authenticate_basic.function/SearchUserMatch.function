@@ -13,7 +13,7 @@
     },
     {
       "Id": "Connection type",
-      "Type": "Compiled:Twenty57.Linx.Plugins.Database.Common.Sql.ConnectionTypeSelection, Twenty57.Linx.Plugins.Database, Version=1.0.6.0, Culture=neutral, PublicKeyToken=null",
+      "Type": "Compiled:Twenty57.Linx.Plugins.Database.Shared.Common.Sql.DesignerConnectionType, Twenty57.Linx.Plugins.Database.Shared, Version=3.0.5.0, Culture=neutral, PublicKeyToken=null",
       "ValueUsage": "DesignTime",
       "Value": "SqlServer"
     },
@@ -41,7 +41,7 @@
     },
     {
       "Id": "Result type",
-      "Type": "Compiled:Twenty57.Linx.Plugins.Database.ExecuteSQL.ResultType, Twenty57.Linx.Plugins.Database, Version=1.0.6.0, Culture=neutral, PublicKeyToken=null",
+      "Type": "Compiled:Twenty57.Linx.Plugins.Database.Shared.ExecuteSQL.ResultType, Twenty57.Linx.Plugins.Database.Shared, Version=3.0.5.0, Culture=neutral, PublicKeyToken=null",
       "ValueUsage": "DesignTime",
       "Value": {
         "CustomType": null,
@@ -87,12 +87,12 @@
             "TypeReference": "Compiled:String"
           }
         ],
-        "IsCustomType": false
+        "IsCustomType": true
       }
     },
     {
       "Id": "Return options",
-      "Type": "Compiled:Twenty57.Linx.Plugins.Database.ExecuteSQL.ReturnModeType, Twenty57.Linx.Plugins.Database, Version=1.0.6.0, Culture=neutral, PublicKeyToken=null",
+      "Type": "Compiled:Twenty57.Linx.Plugins.Database.Shared.ExecuteSQL.ReturnModeType, Twenty57.Linx.Plugins.Database.Shared, Version=3.0.5.0, Culture=neutral, PublicKeyToken=null",
       "ValueUsage": "DesignTime",
       "Value": "FirstRowElseNull"
     },
@@ -109,6 +109,6 @@
       "Value": 60
     }
   ],
-  "Result": "Generated:b1sg",
-  "Version": "2"
+  "Result": "Generated:Ss4h",
+  "Version": "3"
 }

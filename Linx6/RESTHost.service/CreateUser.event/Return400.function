@@ -1,7 +1,7 @@
 {
   "Properties": [
     {
-      "Id": "Source",
+      "Id": "Value",
       "Type": "Generated:pNoA",
       "ValueUsage": "RuntimeRead",
       "Value": {
@@ -14,25 +14,18 @@
               "[]"
             ],
             "expression": {
-              "Expression": "\"Username: Already exists [\" + $.Parameters.body.user.username + \"]\"",
-              "CompiledExpression": "=\"Username: Already exists [\"+{0}+\"]\"",
+              "Expression": "\"Email Address: Invalid [\" + $.Parameters.body.user.email + \"]\"",
+              "CompiledExpression": "=\"Email Address: Invalid [\"+{0}+\"]\"",
               "Type": "Compiled:String"
             }
           }
         ]
       },
       "ValueType": "Linx.JsonExpression"
-    },
-    {
-      "Id": "Target",
-      "Type": "Generated:pNoA",
-      "ValueUsage": "RuntimeWrite",
-      "Value": {
-        "Expression": "$.Result",
-        "CompiledExpression": "={0}",
-        "Type": "Generated:pNoA"
-      },
-      "ValueType": "Linx.CSharpExpression"
     }
-  ]
+  ],
+  "RuntimeCharacteristics": {
+    "IsTerminating": true,
+    "ExecutionPathExecution": "ZeroOrMore"
+  }
 }

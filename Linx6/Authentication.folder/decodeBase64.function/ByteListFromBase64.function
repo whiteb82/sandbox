@@ -5,7 +5,7 @@
       "Type": "Compiled:Linx.ITypeReference",
       "ValueUsage": "DesignTime",
       "Value": "Compiled:Byte",
-      "ValueType": "Twenty57.Linx.SolutionDependencies.Types.CompiledTypeReference, Twenty57.Linx.SolutionDependencies.Types, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null"
+      "ValueType": "Twenty57.Linx.SolutionDependencies.Types.CompiledTypeReference, Twenty57.Linx.SolutionDependencies.Types, Version=1.3.2.0, Culture=neutral, PublicKeyToken=null"
     },
     {
       "Id": "Value",
@@ -14,7 +14,7 @@
       "Value": {
         "Expression": "$.Parameters.base64.ToBytesFromBase64()",
         "CompiledExpression": "=System.Convert.FromBase64String({0}).ToList()",
-        "Type": "Compiled:System.Collections.Generic.List`1[[System.Byte, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e"
+        "Type": "Compiled:System.Collections.Generic.List`1[[System.Byte, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e"
       },
       "ValueType": "Linx.CSharpExpression"
     }

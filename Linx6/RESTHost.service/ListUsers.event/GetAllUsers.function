@@ -13,7 +13,7 @@
     },
     {
       "Id": "Connection type",
-      "Type": "Compiled:Twenty57.Linx.Plugins.Database.Common.Sql.ConnectionTypeSelection, Twenty57.Linx.Plugins.Database, Version=1.0.6.0, Culture=neutral, PublicKeyToken=null",
+      "Type": "Compiled:Twenty57.Linx.Plugins.Database.Shared.Common.Sql.DesignerConnectionType, Twenty57.Linx.Plugins.Database.Shared, Version=3.0.5.0, Culture=neutral, PublicKeyToken=null",
       "ValueUsage": "DesignTime",
       "Value": "SqlServer"
     },
@@ -63,7 +63,7 @@
     },
     {
       "Id": "Result type",
-      "Type": "Compiled:Twenty57.Linx.Plugins.Database.ExecuteSQL.ResultType, Twenty57.Linx.Plugins.Database, Version=1.0.6.0, Culture=neutral, PublicKeyToken=null",
+      "Type": "Compiled:Twenty57.Linx.Plugins.Database.Shared.ExecuteSQL.ResultType, Twenty57.Linx.Plugins.Database.Shared, Version=3.0.5.0, Culture=neutral, PublicKeyToken=null",
       "ValueUsage": "DesignTime",
       "Value": {
         "CustomType": null,
@@ -104,7 +104,7 @@
     },
     {
       "Id": "Return options",
-      "Type": "Compiled:Twenty57.Linx.Plugins.Database.ExecuteSQL.ReturnModeType, Twenty57.Linx.Plugins.Database, Version=1.0.6.0, Culture=neutral, PublicKeyToken=null",
+      "Type": "Compiled:Twenty57.Linx.Plugins.Database.Shared.ExecuteSQL.ReturnModeType, Twenty57.Linx.Plugins.Database.Shared, Version=3.0.5.0, Culture=neutral, PublicKeyToken=null",
       "ValueUsage": "DesignTime",
       "Value": "ListOfRows"
     },
@@ -112,7 +112,7 @@
       "Id": "SQL",
       "Type": "Compiled:String",
       "ValueUsage": "RuntimeRead",
-      "Value": "\r\n \r\nSELECT id\r\n      ,username\r\n      ,password\r\n      ,first_name\r\n      ,last_name\r\n      ,email\r\n      \r\n  FROM dbo.api_user\r\n \r\n  WHERE\r\n   first_name + ' ' + last_name LIKE CASE WHEN ISNULL(@{$.Parameters.name},'') != '' THEN  '%' + @{$.Parameters.name} +'%'\r\n   ELSE first_name + ' ' + last_name END\r\n   OR\r\n   email LIKE CASE WHEN isnull(@{$.Parameters.email},'') != '' THEN '%' + ISNULL(@{$.Parameters.email},'') +'%' ELSE email END"
+      "Value": "SELECT id\r\n      ,username\r\n      ,password\r\n      ,first_name\r\n      ,last_name\r\n      ,email\r\n      \r\n  FROM dbo.api_user\r\n  WHERE\r\n   first_name + ' ' + last_name LIKE CASE WHEN ISNULL(@{$.Parameters.name},'') != '' THEN  '%' + @{$.Parameters.name} +'%'\r\n   ELSE first_name + ' ' + last_name END\r\n   OR\r\n   email LIKE CASE WHEN isnull(@{$.Parameters.email},'') != '' THEN '%' + ISNULL(@{$.Parameters.email},'') +'%' ELSE email END"
     },
     {
       "Id": "Timeout",
@@ -121,6 +121,6 @@
       "Value": 60
     }
   ],
-  "Result": "List:Generated:eRrR",
-  "Version": "2"
+  "Result": "List:Generated:myS8",
+  "Version": "3"
 }
